@@ -29,7 +29,8 @@ sudo Xorg -configure
 sudo dpkg-reconfigure lightdm
 
 # Add BSPWM Entry
-sudo echo "[Desktop Entry]\nName=bspwm\nComment=Binary space partitioning window manager\nExec=bspwm\nType=Application" > /usr/share/xsessions/bspwm.desktop
+sudo echo -e "[Desktop Entry]\nName=bspwm\nComment=Binary space partitioning window manager\nExec=bspwm\nType=Application" > /usr/share/xsessions/bspwm.desktop
+sudo rm /usr/share/xsessions/lightdm-xsession.desktop
 
 # Pull dots git repo
 git clone https://github.com/PlatinShadow/dots.git
