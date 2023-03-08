@@ -34,6 +34,7 @@ echo "[Desktop Entry]\nName=bspwm\nComment=Binary space partitioning window mana
 # Pull dots git repo
 git clone https://github.com/PlatinShadow/dots.git
 mv dots $HOME/.config/dots
+ln -s $HOME/.config/dots/.config/scripts $HOME/.config/scripts
 ln -s $HOME/.config/dots/.config/bspwm $HOME/.config/bspwm
 ln -s $HOME/.config/dots/.config/picom $HOME/.config/picom
 ln -s $HOME/.config/dots/.config/polybar $HOME/.config/polybar
@@ -45,15 +46,16 @@ ln -s $HOME/.config/dots/.config/.zshrc $HOME/.zshrc
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/Meslo.zip -O Meslo.zip
 unzip Meslo.zip -d Meslo
 sudo mv Meslo/*.ttf /usr/share/fonts/truetype
-cd /usr/share/fonts/truetype
+sudo cd /usr/share/fonts/truetype
 sudo mkfontscale
 sudo mkfontdir
 sudo fc-cache
 sudo xset fp rehash
 cd $TMP_DIR
 
-# Disable services slowing the boot process
+# Setup Services
 sudo systemctl disable NetworkManager-wait-online.service
+sudo systemctl enable lightdm
 
 # Setup Oh My Zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
