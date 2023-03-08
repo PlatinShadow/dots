@@ -20,17 +20,9 @@ if ! grep -q non-free /etc/apt/sources.list; then
     sudo sed -i 's/main/main contrib non-free/g' /etc/apt/sources.list
 fi
 
+# Get new packages
 sudo apt-get update 
-sudo apt-get -y install $X11_PACKAGES $DESKTOP_PACKAGES $UTILITY_PACKAGES
-sudo pip3 install pywal
-
-#Confiure Xorg and Lightdm
-sudo Xorg -configure
-sudo dpkg-reconfigure lightdm
-
-# Add BSPWM Entry
-sudo echo -e "[Desktop Entry]\nName=bspwm\nComment=Binary space partitioning window manager\nExec=bspwm\nType=Application" > /usr/share/xsessions/bspwm.desktop
-sudo rm /usr/share/xsessions/lightdm-xsession.desktop
+sudo apt-get -y install git
 
 # Pull dots git repo
 git clone https://github.com/PlatinShadow/dots.git
@@ -42,6 +34,17 @@ sudo ln -s $HOME/.config/dots/.config/rofi $HOME/.config/rofi
 sudo ln -s $HOME/.config/dots/.config/sxhkd $HOME/.config/sxhkd
 sudo ln -s $HOME/.config/dots/.config/.zshrc $HOME/.zshrc
 
+# Download all packages
+sudo apt-get -y install $X11_PACKAGES $DESKTOP_PACKAGES $UTILITY_PACKAGES
+sudo pip3 install pywal
+
+#Confiure Xorg and Lightdm
+sudo Xorg -configure
+sudo dpkg-reconfigure lightdm
+
+# Add BSPWM Entry
+sudo echo -e "[Desktop Entry]\nName=bspwm\nComment=Binary space partitioning window manager\nExec=bspwm\nType=Application" > /usr/share/xsessions/bspwm.desktop
+sudo rm /usr/share/xsessions/lightdm-xsession.desktop
 
 # Setup Fonts
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/Meslo.zip -O Meslo.zip
