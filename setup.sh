@@ -5,7 +5,7 @@ mkdir $TMP_DIR
 cd $TMP_DIR
 
 # Install packages
-DESKTOP_PACKAGES="polybar dunst rofi bspwm sxhkd zsh feh neofetch imagemagick"
+DESKTOP_PACKAGES="polybar dunst rofi bspwm sxhkd zsh feh neofetch imagemagick unclutter"
 UTILITY_PACKAGES="git wget unzip python3"
 PICOM_DEPS="libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-dpms0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev libxcb-glx0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl-dev libegl-dev libpcre2-dev libevdev-dev uthash-dev libev-dev libx11-xcb-dev meson build-essential ninja-build"
 NVIDIA_PACKAGES=""
@@ -34,6 +34,9 @@ sudo ln -s $HOME/.config/dots/.config/picom $HOME/.config/picom
 sudo ln -s $HOME/.config/dots/.config/polybar $HOME/.config/polybar
 sudo ln -s $HOME/.config/dots/.config/rofi $HOME/.config/rofi
 sudo ln -s $HOME/.config/dots/.config/sxhkd $HOME/.config/sxhkd
+rmdir $HOME/.config/gtk-3.0 $HOME/.config/gtk-4.0
+sudo ln -s $HOME/.config/dots/.config/gtk-3.0 $HOME/.config/gtk-3.0
+sudo ln -s $HOME/.config/dots/.config/gtk-4.0 $HOME/.config/gtk-4.0
 
 # Download all packages
 sudo apt-get -y install $DESKTOP_PACKAGES $UTILITY_PACKAGES $PICOM_DEPS $NVIDIA_PACKAGES
