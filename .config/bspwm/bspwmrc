@@ -7,8 +7,8 @@ xrandr --output DVI-D-0 --mode 1920x1080 --rate 144
 picom -b
 
 # Setup Wallpaper and gen color scheme
-feh --bg-scale $HOME/.config/desktop/wallpaper.jpg &
-wal -i $HOME/.config/desktop/wallpaper.jpg &
+feh --bg-scale $HOME/.config/dots/wallpaper/wallpaper.jpg &
+wal -i $HOME/.config/dots/wallpaper/wallpaper.jpg &
 . "${HOME}/.cache/wal/colors.sh"
 
 bspc monitor -d I II III IV

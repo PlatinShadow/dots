@@ -35,13 +35,13 @@ sudo rm /usr/share/xsessions/lightdm-xsession.desktop
 # Pull dots git repo
 git clone https://github.com/PlatinShadow/dots.git
 sudo mv dots $HOME/.config/dots
-sudo ln -s $HOME/.config/dots/.config/scripts $HOME/.config/scripts
 sudo ln -s $HOME/.config/dots/.config/bspwm $HOME/.config/bspwm
 sudo ln -s $HOME/.config/dots/.config/picom $HOME/.config/picom
 sudo ln -s $HOME/.config/dots/.config/polybar $HOME/.config/polybar
 sudo ln -s $HOME/.config/dots/.config/rofi $HOME/.config/rofi
 sudo ln -s $HOME/.config/dots/.config/sxhkd $HOME/.config/sxhkd
 sudo ln -s $HOME/.config/dots/.config/.zshrc $HOME/.zshrc
+
 
 # Setup Fonts
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/Meslo.zip -O Meslo.zip

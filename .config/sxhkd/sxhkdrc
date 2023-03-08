@@ -40,7 +40,7 @@ alt + @space
 
 #logoff controller
 super + l 
-	$HOME/.config/scripts/logoff_controller.sh
+	$HOME/.config/dots/scripts/logoff_controller.sh
 
 # make sxhkd reload its configuration files:
 super + Escape
