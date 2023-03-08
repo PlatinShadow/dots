@@ -53,7 +53,7 @@ cd picom
 git submodule update --init --recursive
 meson setup --buildtype=release . build
 ninja -C build
-ninja -C build install
+sudo ninja -C build install
 cd $TMP_DIR
 
 # Setup Fonts
