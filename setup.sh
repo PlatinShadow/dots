@@ -1,11 +1,44 @@
+#!/bin/bash
 TMP_DIR="/tmp/epic-setup"
 
 mkdir $TMP_DIR
 cd $TMP_DIR
 
 # Install packages
-sudo apt-get update 
-sudo apt-get -y install curl wget polybar picom dunst rofi bspwm sxhd zsh feh git unzip xfonts-utils neofetch
+X11_PACKAGES="xorg"
+DESKTOP_PACKAGES="lightdm polybar picom dunst rofi bspwm sxhd zsh feh neofetch imagemagick"
+UTILITY_PACKAGES="git wget unzip python3"
+
+echo -n "Do you want to install nvidia drivers? (yes/no)"
+read userInput
+if [ "$userInput" = "yes" ]; then
+    X11_PACKAGES="nvidia-driver xserver-xorg-video-nvidia xserver-xorg-core xinit"
+fi
+
+# Enable non-free packages for nvidia driver
+if grep -q non-free /etc/apt/sources.list; then
+    sed -i 's/main/main contrib non-free/g' /etc/apt/sources.list
+fi
+
+apt-get update 
+apt-get -y install $X11_PACKAGES $DESKTOP_PACKAGES $UTILITY_PACKAGES
+pip3 install pywal
+
+#Confiure Xorg and Lightdm
+Xorg -configure
+dpkg-reconfigure lightdm
+
+# Add BSPWM Entry
+echo "[Desktop Entry]\nName=bspwm\nComment=Binary space partitioning window manager\nExec=bspwm\nType=Application" > /usr/share/xsessions/bspwm.desktop
+
+# Pull dots git repo
+git clone https://github.com/PlatinShadow/dots.git
+mv dots $HOME/.config/dots
+ln -s $HOME/.config/dots/.config/bspwm $HOME/.config/bspwm
+ln -s $HOME/.config/dots/.config/picom $HOME/.config/picom
+ln -s $HOME/.config/dots/.config/polybar $HOME/.config/polybar
+ln -s $HOME/.config/dots/.config/rofi $HOME/.config/rofi
+ln -s $HOME/.config/dots/.config/sxhkd $HOME/.config/sxhkd
 
 # Setup Fonts
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/Meslo.zip -O Meslo.zip
@@ -24,20 +57,20 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 
 # Download useful apps
 ## Spotify
-curl -sS https://download.spotify.com/debian/pubkey_7A3A762FAFD4A51F.gpg | sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/spotify.gpg
-echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
-sudo apt-get update && sudo apt-get -y install spotify-client
+curl -sS https://download.spotify.com/debian/pubkey_7A3A762FAFD4A51F.gpg | gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/spotify.gpg
+echo "deb http://repository.spotify.com stable non-free" | tee /etc/apt/sources.list.d/spotify.list
+apt-get update && apt-get -y install spotify-client
 
 ## Discord
 wget https://discord.com/api/download\?platform\=linux\&format\=deb-O discord.deb
-sudo dpkg -i discord.deb
+dpkg -i discord.deb
 
 ## VS Code
 wget https://go.microsoft.com/fwlink/?LinkID=760868 -O vscode.deb
-sudo dpkg -i vscode.deb
+dpkg -i vscode.deb
 
 # Disable services slowing the boot process
-sudo systemctl disable NetworkManager-wait-online.service
+systemctl disable NetworkManager-wait-online.service
 
 # DONE
 clear
