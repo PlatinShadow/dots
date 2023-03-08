@@ -74,7 +74,7 @@ systemctl disable NetworkManager-wait-online.service
 
 # DONE
 clear
-echo Done! Setup Complete :)
+echo Done! Setup Complete 
 neofetch
 echo TODO: Set ZSH_THEME="powerlevel10k/powerlevel10k" in ~/.zshrc
 echo You may now reboot
