@@ -16,7 +16,7 @@ if [ "$userInput" = "yes" ]; then
 fi
 
 # Enable non-free packages for nvidia driver
-if grep -q non-free /etc/apt/sources.list; then
+if ! grep -q non-free /etc/apt/sources.list; then
     sudo sed -i 's/main/main contrib non-free/g' /etc/apt/sources.list
 fi
 
@@ -29,18 +29,18 @@ sudo Xorg -configure
 sudo dpkg-reconfigure lightdm
 
 # Add BSPWM Entry
-echo "[Desktop Entry]\nName=bspwm\nComment=Binary space partitioning window manager\nExec=bspwm\nType=Application" > /usr/share/xsessions/bspwm.desktop
+sudo echo "[Desktop Entry]\nName=bspwm\nComment=Binary space partitioning window manager\nExec=bspwm\nType=Application" > /usr/share/xsessions/bspwm.desktop
 
 # Pull dots git repo
 git clone https://github.com/PlatinShadow/dots.git
-mv dots $HOME/.config/dots
-ln -s $HOME/.config/dots/.config/scripts $HOME/.config/scripts
-ln -s $HOME/.config/dots/.config/bspwm $HOME/.config/bspwm
-ln -s $HOME/.config/dots/.config/picom $HOME/.config/picom
-ln -s $HOME/.config/dots/.config/polybar $HOME/.config/polybar
-ln -s $HOME/.config/dots/.config/rofi $HOME/.config/rofi
-ln -s $HOME/.config/dots/.config/sxhkd $HOME/.config/sxhkd
-ln -s $HOME/.config/dots/.config/.zshrc $HOME/.zshrc
+sudo mv dots $HOME/.config/dots
+sudo ln -s $HOME/.config/dots/.config/scripts $HOME/.config/scripts
+sudo ln -s $HOME/.config/dots/.config/bspwm $HOME/.config/bspwm
+sudo ln -s $HOME/.config/dots/.config/picom $HOME/.config/picom
+sudo ln -s $HOME/.config/dots/.config/polybar $HOME/.config/polybar
+sudo ln -s $HOME/.config/dots/.config/rofi $HOME/.config/rofi
+sudo ln -s $HOME/.config/dots/.config/sxhkd $HOME/.config/sxhkd
+sudo ln -s $HOME/.config/dots/.config/.zshrc $HOME/.zshrc
 
 # Setup Fonts
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/Meslo.zip -O Meslo.zip
