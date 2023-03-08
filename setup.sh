@@ -67,7 +67,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
 rm $HOME/.zshrc $HOME/.p10k.zsh
-sudo ln -s $HOME/.config/dots/.config/.p10k.zsh $HOME/.p10k.zsh
+sudo ln -s $HOME/.config/dots/.config/.zshrc $HOME/.zshrc
 sudo ln -s $HOME/.config/dots/.config/.p10k.zsh $HOME/.p10k.zsh
 
 # DONE
