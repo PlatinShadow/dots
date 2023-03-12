@@ -37,22 +37,21 @@ sudo $PM_INSTALL_COMMAND $DESKTOP_PACKAGES
 sudo pip3 install pywal
 
 # Setup Fonts
-wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/Meslo.zip -O Meslo.zip
-unzip Meslo.zip -d Meslo
-sudo mv Meslo/*.ttf /usr/share/fonts/truetype
-cd /usr/share/fonts/truetype
-sudo mkfontscale
-sudo mkfontdir
-sudo fc-cache
-sudo xset fp rehash
-cd $TMP_DIR
+#wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/Meslo.zip -O Meslo.zip
+#unzip Meslo.zip -d Meslo
+#sudo mv Meslo/*.ttf /usr/share/fonts/truetype
+#cd /usr/share/fonts/truetype
+#sudo mkfontscale
+#sudo mkfontdir
+#sudo fc-cache
+#sudo xset fp rehash
+#cd $TMP_DIR
 
 # Setup Services
 #sudo systemctl disable NetworkManager-wait-online.service
 
 # Setup Oh My Zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-exit 
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && exit
 
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
