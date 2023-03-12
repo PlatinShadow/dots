@@ -6,7 +6,7 @@ cd $TMP_DIR
 
 # Install packages
 DESKTOP_PACKAGES="polybar picom dunst rofi bspwm sxhkd zsh feh neofetch imagemagick unclutter"
-UTILITY_PACKAGES="git wget unzip python3"
+UTILITY_PACKAGES="git wget unzip python3 python-pip"
 
 PM_UPDATE_COMMAND="pacman -Syu"
 PM_INSTALL_COMMAND="pacman -S"
@@ -48,9 +48,11 @@ cd $TMP_DIR
 
 # Setup Oh My Zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+ecit 
+
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
-rm $HOME/.zshrc $HOME/.p10k.zsh
+sudo rm $HOME/.zshrc $HOME/.p10k.zsh
 sudo ln -s $HOME/.config/dots/.config/.zshrc $HOME/.zshrc
 sudo ln -s $HOME/.config/dots/.config/.p10k.zsh $HOME/.p10k.zsh
 
