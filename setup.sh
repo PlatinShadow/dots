@@ -37,14 +37,11 @@ sudo $PM_INSTALL_COMMAND $DESKTOP_PACKAGES
 sudo pip3 install pywal
 
 # Setup Fonts
-#wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/Meslo.zip -O Meslo.zip
-#unzip Meslo.zip -d Meslo
-#sudo mv Meslo/*.ttf /usr/share/fonts/truetype
-#cd /usr/share/fonts/truetype
-#sudo mkfontscale
-#sudo mkfontdir
-#sudo fc-cache
-#sudo xset fp rehash
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/Meslo.zip -O Meslo.zip
+unzip Meslo.zip -d Meslo
+sudo mkdir -p /usr/local/share/fonts/ttf
+sudo mv Meslo/*.ttf /usr/local/share/fonts/ttf
+sudo fc-cache
 #cd $TMP_DIR
 
 # Setup Services
@@ -58,6 +55,11 @@ sudo pip3 install pywal
 #sudo rm $HOME/.zshrc $HOME/.p10k.zsh
 #sudo ln -s $HOME/.config/dots/config/.zshrc $HOME/.zshrc
 #sudo ln -s $HOME/.config/dots/config/.p10k.zsh $HOME/.p10k.zsh
+
+# Setup pywal in zsh
+echo wal -i \$HOME/.config/dots/wallpaper/wallpaper.jpg \> /dev/null >> ~/.zshrc
+echo . "\${HOME}/.cache/wal/colors.sh" >> ~/.zshrc
+
 
 # DONE
 neofetch
