@@ -8,8 +8,8 @@ cd $TMP_DIR
 DESKTOP_PACKAGES="polybar picom dunst rofi bspwm sxhkd zsh feh neofetch imagemagick unclutter"
 UTILITY_PACKAGES="git wget unzip python3"
 
-PM_UPDATE_COMMAND = "pacman -Syu"
-PM_INSTALL_COMMAND = "pacman -S"
+PM_UPDATE_COMMAND="pacman -Syu"
+PM_INSTALL_COMMAND="pacman -S"
 
 # Get new packages
 sudo $PM_UPDATE_COMMAND
