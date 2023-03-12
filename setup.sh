@@ -27,7 +27,8 @@ sudo ln -s $HOME/.config/dots/config/picom $HOME/.config/picom
 sudo ln -s $HOME/.config/dots/config/polybar $HOME/.config/polybar
 sudo ln -s $HOME/.config/dots/config/rofi $HOME/.config/rofi
 sudo ln -s $HOME/.config/dots/config/sxhkd $HOME/.config/sxhkd
-sudo rmdir $HOME/.config/gtk-3.0 $HOME/.config/gtk-4.0
+sudo rm -rf $HOME/.config/gtk-3.0
+sudo rm -rf $HOME/.config/gtk-4.0
 sudo ln -s $HOME/.config/dots/config/gtk-3.0 $HOME/.config/gtk-3.0
 sudo ln -s $HOME/.config/dots/config/gtk-4.0 $HOME/.config/gtk-4.0
 
