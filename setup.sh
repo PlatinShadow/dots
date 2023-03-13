@@ -5,7 +5,7 @@ mkdir $TMP_DIR
 cd $TMP_DIR
 
 # Install packages
-DESKTOP_PACKAGES="polybar picom dunst rofi bspwm sxhkd zsh feh neofetch imagemagick unclutter xorg-xsetroot" 
+DESKTOP_PACKAGES="polybar picom dunst rofi bspwm sxhkd zsh feh neofetch imagemagick unclutter xorg-xsetroot playerctl"
 UTILITY_PACKAGES="git wget unzip python3 python-pip"
 
 PM_UPDATE_COMMAND="pacman -Syu"
@@ -19,7 +19,7 @@ sudo $PM_UPDATE_COMMAND
 sudo $PM_INSTALL_COMMAND $UTILITY_PACKAGES
 
 # Pull dots git repo
-git clone https://github.com/PlatinShadow/dots.git
+git clone git@github.com:PlatinShadow/dots.gitt
 mkdir $HOME/.config
 sudo mv dots $HOME/.config/dots
 sudo ln -s $HOME/.config/dots/config/bspwm $HOME/.config/bspwm

@@ -40,3 +40,4 @@ pkill polybar; polybar --config=$HOME/.config/polybar/config.ini epicbar 2>&1 | 
 pkill dunst; dunst &
 pkill sxhkd; sxhkd &
 pkill unclutter; unclutter -idle 2 -b &
+pkill komorebi; komorebi &
