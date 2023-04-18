@@ -11,7 +11,7 @@ feh --bg-scale $HOME/.config/dots/wallpaper/wallpaper.jpg &
 wal -i $HOME/.config/dots/wallpaper/wallpaper.jpg &
 . "${HOME}/.cache/wal/colors.sh"
 
-bspc monitor -d I II III IV
+bspc monitor -d 1 2 3 4 5 
 
 # Configure Colors
 bspc config normal_border_color "$color1"

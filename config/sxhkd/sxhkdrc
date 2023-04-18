@@ -2,6 +2,10 @@
 super + Return
 	gnome-terminal
 
+#firefox
+alt + Return
+	firefox 
+
 # program launcher
 alt + @space
 	rofi -show run
