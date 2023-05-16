@@ -2,6 +2,10 @@
 super + Return
 	gnome-terminal
 
+# screen shot
+super + p
+	import latest.png ;xclip -selection clipboard -target image/png -filter < latest.png &>/dev/null
+
 #firefox
 alt + Return
 	firefox 
