@@ -19,7 +19,7 @@ sudo $PM_UPDATE_COMMAND
 sudo $PM_INSTALL_COMMAND $UTILITY_PACKAGES
 
 # Pull dots git repo
-git clone git@github.com:PlatinShadow/dots.gitt
+git clone git@github.com:PlatinShadow/dots.git
 mkdir $HOME/.config
 sudo mv dots $HOME/.config/dots
 sudo ln -s $HOME/.config/dots/config/bspwm $HOME/.config/bspwm

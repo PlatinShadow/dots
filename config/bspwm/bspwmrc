@@ -36,7 +36,10 @@ bsoc config focus_follows_pointer true
 xsetroot -cursor_name left_ptr
 
 # Start Polybar, Dunst, sxhkd
-pkill polybar; polybar --config=$HOME/.config/polybar/config.ini epicbar 2>&1 | tee -a /tmp/polybar.log & disown 
+pkill polybar
+wait 1
+polybar --config=$HOME/.config/polybar/config.ini epicbar 2>&1 | tee -a /tmp/polybar.log & disown 
+
 pkill dunst; dunst &
 pkill sxhkd; sxhkd &
 pkill unclutter; unclutter -idle 2 -b &
