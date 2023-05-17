@@ -27,8 +27,12 @@ super + Escape
 #
 
 # quit/restart bspwm
-super + alt + {q,r}
-	bspc {quit,wm -r}
+super + alt + r
+	$HOME/.config/dots/scripts/reload_bspwm.sh
+
+# quit
+super + alt + q
+	bspc quit
 
 # close and kill
 super + {_,shift + }w
